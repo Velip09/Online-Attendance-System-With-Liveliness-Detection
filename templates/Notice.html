@@ -1,0 +1,322 @@
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <title>Attendace System</title>
+
+  <style media="screen" type="text/css">
+    a:link {
+      text-decoration: none;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", sans-serif;
+    }
+
+    header {
+      position: fixed;
+      background: #22242A;
+      padding: 20px;
+      width: 100%;
+
+      z-index: 1;
+    }
+
+    .left_area h3 {
+      color: #fff;
+      margin: 0px;
+      text-transform: uppercase;
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .left_area span {
+      color: #19B3D3;
+    }
+
+    .logout_btn {
+      padding: 5px;
+      background: #19B3D3;
+      text-decoration: none;
+      float: right;
+      margin-top: -30px;
+      margin-right: 40px;
+      border-radius: 2px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      transition: 0.5s;
+
+    }
+
+    .logout_btn:hover {
+      background: #0B87A6;
+    }
+
+    .sidebar {
+      background: #2f323a;
+      margin-top: 70px;
+      padding-top: 30px;
+      position: fixed;
+      left: 0;
+      width: 250px;
+      height: 100%;
+      transition: 0.5s;
+      transition-property: left;
+    }
+
+    .sidebar h4 {
+      color: #ccc;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .sidebar a {
+      color: #fff;
+      display: block;
+      width: 100%;
+      line-height: 60px;
+      text-decoration: none;
+      padding-left: 40px;
+      box-sizing: border-box;
+      transition: 0.5s;
+
+    }
+
+    .sidebar a:hover {
+      background: #19B3D3;
+    }
+
+    .sidebar i {
+      padding-right: 10px;
+    }
+
+    label #sidebar_btn {
+      z-index: 1;
+      color: #fff;
+      position: fixed;
+      cursor: pointer;
+      left: 300px;
+      font-size: 20px;
+      margin: 5px 0;
+      transition: 0.5s;
+      transition-property: color;
+    }
+
+    label #sidebar_btn:hover {
+      color: #19B3D3;
+    }
+
+    #check:checked~.sidebar {
+      left: -190px;
+    }
+
+    #check:checked~.sidebar a span {
+      display: none;
+    }
+
+    #check:checked~.sidebar a {
+      font-size: 20px;
+      margin-left: 170px;
+      width: 80px;
+    }
+
+    .content {
+      margin-left: 250px;
+      background: url(background.png) no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 100vh;
+      transition: 0.5s;
+    }
+
+    #check:checked~.content {
+      margin-left: 60px;
+    }
+
+    #check {
+      display: none;
+    }
+
+    a:link {
+      text-decoration: none;
+    }
+
+    .order-card {
+      color: #fff;
+    }
+
+    .bg-c-blue {
+      background: linear-gradient(45deg, #4099ff, #73b4ff);
+    }
+
+    .bg-c-green {
+      background: linear-gradient(45deg, #2ed8b6, #59e0c5);
+    }
+
+    .bg-c-yellow {
+      background: linear-gradient(45deg, #FFB64D, #ffcb80);
+    }
+
+    .bg-c-pink {
+      background: linear-gradient(45deg, #FF5370, #ff869a);
+    }
+
+
+    .card {
+      border-radius: 5px;
+      -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
+      box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
+      border: none;
+      margin-bottom: 100px;
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .card .card-block {
+      padding: 25px;
+    }
+
+    .order-card i {
+      font-size: 26px;
+    }
+
+    .f-left {
+      float: left;
+    }
+
+    .f-right {
+      float: right;
+	 
+	     .alert {
+      margin-left: 25%;
+      margin-right: 25%;
+      padding: 20px;
+      background-color: #f44336;
+      color: white;
+    }
+
+    .w3-panel p {
+      padding-top: 10px;
+    }
+
+    .closebtn {
+      margin-left: 15px;
+      color: white;
+      font-weight: bold;
+      float: right;
+      font-size: 22px;
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .closebtn:hover {
+      color: black;
+	  }
+	   .note {
+      text-align: center;
+      height: 100px;
+      background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+      color: #fff;
+      font-weight: bold;
+      line-height: 100px;
+    }
+
+    .form-content {
+      padding: 5%;
+      border: 2px solid #ced4da;
+      margin-bottom: 2%;
+    }
+
+    .form-control {
+      border-radius: 1.5rem;
+      height: 200px;
+    }
+
+    .btnSubmit {
+      border: none;
+      border-radius: 1.5rem;
+      padding: 1%;
+      width: 20%;
+      cursor: pointer;
+      background: #0062cc;
+      color: #fff;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <input type="checkbox" id="check">
+  <!--header area start-->
+  <header>
+    <label for="check">
+      <i class="fas fa-bars" id="sidebar_btn"></i>
+    </label>
+    <div class="left_area">
+      <h3>Attendace System</h3>
+    </div>
+    <div class="right_area">
+      <a href="/Facultylogout" class="logout_btn">Logout</a>
+    </div>
+  </header>
+  <!--header area end-->
+  <!--sidebar start-->
+  <div class="sidebar">
+    <center>
+      <h4>{{ faculty['Fname']}} {{ faculty['Lname'] }}</h4>
+
+    </center>
+
+    <a href="/Facultyprofile"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+    <a href="/FacultyLogin/CreateLect"><i class="fas fa-user-graduate"></i><span>Create Lecture</span></a>
+    <a href="#"><i class="fas fa-address-card"></i><span>View Attendance</span></a>
+	<a href="#"><i class="fas fa-address-card"></i><span>Notice</span></a>
+
+
+  </div>
+  <div class="content">
+	<body>
+	<!------ notice page for  by admin(sumit)  ---------->
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-8 col-xl-6">
+          <div class="card rounded-3">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2" style='text-align: center;'>Notice</h3>
+  
+              <form class="px-md-2" action="/message" method="post">
+              <div class="row">
+                <div class="col-md-6 mb-44">
+          <label class="form-label" for="form3Example1q">Announcement</label>
+          <textarea name="message" rows="10" cols="30" id="message">
+            </textarea>              
+                </div>
+          </div>
+          <br>
+           <div class="row">
+           <div class="col-md-6 mb-44">
+                <button type="submit" class="btn btn-success btn-lg mb-1" style='text-align: center;'>Submit</button>
+                </div>
+          </div>
+          </form>
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+          
+    </body>
+  </div>
+</body>
+
+</html>
